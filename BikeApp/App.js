@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Component} from 'react-native';
+import { Component, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import MapView from 'react-native-maps';
 
@@ -19,6 +19,12 @@ export default class App extends React.Component {
             longitudeDelta: 0.0121,
           }}
         >
+          <View style={{backgroundColor: '#5414D5', height: 30}}>
+            <TextInput
+                  style={{height: 40}}
+                  placeholder="Type here the location!"
+            />
+          </View>
         </MapView>
       </View>
     );
