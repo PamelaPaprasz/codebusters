@@ -1,34 +1,11 @@
-/*import React from 'react';
-import { StyleSheet, Text, View, Component, Image} from 'react-native';
-
-import MapView from 'react-native-maps';
-
-export default class App extends React.Component {
-  render() {
-    return (
-        <View style ={styles.container}>
-          <View style ={styles.navbar}>
-            <Image
-              source={require('../img/menu.png')}
-              style={{width: 40, height: 40, margin: 15}}
-            />
-            <Image
-              source={require('../img/accident.png')}
-              style={{width: 50, height: 50, margin: 10}}
-            />
-          </View>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-})*/
-
 import React from 'react';
-import { StyleSheet, Text, View, Component, Image} from 'react-native';
+import { Alert, AppRegistry, StyleSheet, Text, View, Component, Image, TouchableOpacity, TouchableHighLight} from 'react-native';
 
 export default class Login extends React.Component {
+  _onPressButton() {
+    Alert.alert('You tapped the button!')
+  }
+
   render() {
     return (
       <View style ={styles.navbar}>
@@ -36,11 +13,19 @@ export default class Login extends React.Component {
               source={require('../img/menu.png')}
               style={styles.menuPictures}
             />
+          <View style ={styles.container}>
             <Image
               source={require('../img/accident.png')}
-              style={styles.bikePictures}
+              style={styles.bikePicture}
             />
+            <TouchableOpacity onPress={this._onPressButton}>
+              <Image
+                style={styles.reportPicture}
+                source={require('../img/report.png')}
+              />
+            </TouchableOpacity>
           </View>
+        </View>
     );
   }
 }
@@ -63,7 +48,18 @@ const styles = StyleSheet.create({
     height: 25, 
     margin: 10
   }, 
-  bikePictures:{
+  container:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  bikePicture:{
+    marginLeft: 20,
+    marginTop: 30,
+    width: 35, 
+    height: 35, 
+    margin: 10
+  },
+  reportPicture:{
     marginLeft: 20,
     marginTop: 30,
     width: 35, 
