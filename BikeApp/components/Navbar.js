@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   navbar:{
     height: 80,
     width: 900,
-    backgroundColor: '#F5DE11',
+    backgroundColor: '#D2DE28',
     flexDirection: 'row',
     alignItems: 'center',
     position: 'absolute',
