@@ -7,7 +7,7 @@ import MapView from 'react-native-maps';
 
 export default class App extends React.Component {
 
-  __onPressButton() {
+  _onPressButton() {
     Alert.alert('You pressed me!')
   }
 
@@ -27,7 +27,7 @@ export default class App extends React.Component {
           style={styles.textInput}
           placeholder="Type here the location!"
         />
-        <TouchableOpacity style={styles.searchPictureContainer} onPress={()=>{Alert.alert('You pressed me!')}}>
+        <TouchableOpacity style={styles.searchPictureContainer} onPress={this._onPressButton}>
           <Image
             style={styles.searchPictures}
             source={require('../img/detective.png')}
