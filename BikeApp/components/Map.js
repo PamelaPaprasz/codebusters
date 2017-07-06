@@ -1,17 +1,42 @@
 import React from 'react';
-import { Alert, AppRegistry, Button, Component, Image ,StyleSheet, TouchableOpacity, Text, TextInput, View} from 'react-native';
+import { 
+  Alert, 
+  AppRegistry, 
+  Button, 
+  Component, 
+  Image,
+  StyleSheet,
+  TouchableHighlight, 
+  TouchableOpacity, 
+  Text, 
+  TextInput, 
+  View
+} from 'react-native';
 
 import MapView from 'react-native-maps';
 
-// var icon = this.props.active ? require('../img/detective.png') : require('../paper-plane.png');
-
 export default class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { search: true };
+  }
+  // _onHideUnderlay(){
+  //   this.setState({ active: false });
+  // }
+  // _onShowUnderlay(){
+  //   this.setState({ active: true });
+  // }
+
   _onPressButton() {
-    Alert.alert('You pressed me!')
+    Alert.alert('u pressed me :)')
+    this.search = !this.search
+
+
   }
 
   render() {
+    icon = this.props.search ? require('../img/detective.png') : require('../img/paperplane.png');
     return (
       <View style={styles.mainContainer}>
         <MapView
@@ -27,17 +52,21 @@ export default class App extends React.Component {
           style={styles.textInput}
           placeholder="Type here the location!"
         />
-        <TouchableOpacity style={styles.searchPictureContainer} onPress={this._onPressButton}>
-          <Image
-            style={styles.searchPictures}
-            source={require('../img/detective.png')}
-          />
-        </TouchableOpacity>
+        <TouchableHighlight
+          style={styles.searchPictureContainer} 
+          onPress={this._onPressButton}>
+            <Image
+              style={styles.searchPictures}
+              source={icon}
+            />
+        </TouchableHighlight>
         </MapView>
       </View>
     );
   }
 }
+
+
 
 
 const styles = StyleSheet.create({
@@ -98,5 +127,33 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 10,
     left: 0,
-  }
+  },
+    welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+    color: '#000066'
+  },
+  welcomePress: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff'
+  },
+  button: {
+    borderColor: '#000066',
+    borderWidth: 1,
+    borderRadius: 10,
+  },
+  buttonPress: {
+    borderColor: '#000066',
+    backgroundColor: '#000066',
+    borderWidth: 1,
+    borderRadius: 10,
+  },
 });
+
+
+
+  // onHideUnderlay={this._onHideUnderlay.bind(this)}
+  //         onShowUnderlay={this._onShowUnderlay.bind(this)}
