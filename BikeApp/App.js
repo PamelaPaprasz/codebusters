@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Component} from 'react-native';
+import { StyleSheet, Text, View, Component, Image} from 'react-native';
 
 import MapView from 'react-native-maps';
 
@@ -8,7 +8,14 @@ export default class App extends React.Component {
     return (
         <View style ={styles.container}>
           <View style ={styles.navbar}>
-            <Text style ={styles.navbarText}>Most</Text>
+            <Image
+              source={require('./img/menu.png')}
+              style={{width: 40, height: 40, margin: 15}}
+            />
+            <Image
+              source={require('./img/accident.png')}
+              style={{width: 50, height: 50, margin: 10}}
+            />
           </View>
         <MapView
           style={styles.map}
@@ -38,22 +45,19 @@ const styles = StyleSheet.create({
   },
   map: {
     position: 'absolute',
-    top: 80,
+    top: 90,
     left: 0,
     right: 0,
     bottom: 0,
   },
   navbar:{
-    height: 80,
+    paddingTop: 18,
+    height: 90,
     width: 900,
-    backgroundColor: 'pink',
+    backgroundColor: '#6D2E70',
     position: 'absolute',
     top: 0,
     left: 0,
-  },
-  navbarText:{
-    height: 80, 
-    fontSize: 40, 
-    color: 'black'
+    flexDirection: 'row'
   }
 });
