@@ -6,6 +6,9 @@ import MapView from 'react-native-maps';
 export default class App extends React.Component {
   render() {
     return (
+      <View style={styles.headerContainer}>
+        <Text style={{height: 450, fontSize: 24, backgroundColor: 'red', color: '#C0FF3E', alignSelf: 'center'}}>Hello World!</Text>
+      <View style={styles.container}>
         <MapView
           style={ styles.map }
           initialRegion={{
@@ -15,6 +18,8 @@ export default class App extends React.Component {
             longitudeDelta: 0.0421,
           }}
         />
+      </View>
+      </View>
     );
   }
 }
@@ -22,6 +27,15 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    position: 'absolute',
+    top: 100,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  headerContainer: {
     position: 'absolute',
     top: 0,
     left: 0,
