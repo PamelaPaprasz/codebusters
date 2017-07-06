@@ -1,5 +1,5 @@
 import React from 'react';
-import { Component, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, Component, Image, TextInput, View} from 'react-native';
 
 import NavBar from './components/Navbar';
 import Map from './components/Map';
