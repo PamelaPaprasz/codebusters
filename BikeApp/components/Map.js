@@ -3,6 +3,8 @@ import { Alert, AppRegistry, Button, Component, Image ,StyleSheet, TouchableOpac
 
 import MapView from 'react-native-maps';
 
+// var icon = this.props.active ? require('../img/detective.png') : require('../paper-plane.png');
+
 export default class App extends React.Component {
 
   __onPressButton() {
@@ -25,9 +27,8 @@ export default class App extends React.Component {
           style={styles.textInput}
           placeholder="Type here the location!"
         />
-        <TouchableOpacity style={styles.searchPictureContainer}>
+        <TouchableOpacity style={styles.searchPictureContainer} onPress={()=>{Alert.alert('You pressed me!')}}>
           <Image
-            onPress={this._onPressButton}
             style={styles.searchPictures}
             source={require('../img/detective.png')}
           />
