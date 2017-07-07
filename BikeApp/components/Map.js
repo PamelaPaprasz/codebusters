@@ -17,12 +17,11 @@ import MapView from 'react-native-maps';
 
 import renderIf from './renderif';
 
-
 export default class App extends React.Component {
 
 
   state = {
-    switchValue: true,
+    switchValue: false,
   };
 
 
@@ -32,7 +31,8 @@ export default class App extends React.Component {
 
 
   render() {
-    icon= this.state.switchValue ? require('../img/detective.png') : require('../img/paper-plane.png');
+    icon= this.state.switchValue ? require('../img/paper-plane.png') : require('../img/detective.png');
+    inputPlaceholder=this.state.switchValue ? "Type here the location!" : "" ;
     return (
       <View style={styles.mainContainer}>
         <MapView
@@ -45,10 +45,9 @@ export default class App extends React.Component {
           }}
         >
         <TextInput 
-          style={!this.state.switchValue ? {height: 40, width: 180, margin: 10, backgroundColor: 'red', position: 'absolute', bottom: 10, left: 0,} : {}}
-          placeholder="Type here the location!"
+          style={this.state.switchValue ? {height: 40, width: 180, margin: 10, backgroundColor: 'red', position: 'absolute', bottom: 10, left: 0,} : {}}
+          placeholder={inputPlaceholder}
         />
-      
         <TouchableOpacity
           style={styles.searchPictureContainer} 
           onPress={this._onPressButton}>
