@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, AppRegistry, StyleSheet, Text, View, Component, Image, TouchableOpacity, Lightbox, LightboxView, TextInput } from 'react-native';
+import { Alert, AppRegistry, StyleSheet, Text, View, Component, Image, TouchableOpacity, Lightbox, LightboxView, TextInput, Button } from 'react-native';
 import Modal from 'react-native-modal'
 
 export default class Login extends React.Component {
@@ -32,14 +32,19 @@ export default class Login extends React.Component {
               />
             </TouchableOpacity>
             <Modal isVisible={this.state.isModalVisible}>
-              <View style={{ backgroundColor: 'grey' }}>
-              <Text style={{fontSize: 40}}>Report</Text>
+              <View style={styles.modal}>
+              <Text style={{alignSelf: 'flex-end', fontSize:20, margin: 10}} onPress={this._hideModal}>X</Text>
+              <Text style={{fontSize: 40}}>Report:</Text>
+              <Text style={{fontSize: 20}}>type:</Text><TextInput style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1}}/>
+              <Text style={{fontSize: 20}}>desciption:</Text><TextInput style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1}}/>
+              <Button
+                onPress={this._hideModal}
+                title="Send"
+                color="black"
+              />
           </View>
         </Modal>
           </View>
-      {/*<TextInput
-        style={{height: 40, width: 80, borderColor: 'gray', borderWidth: 1}}
-      />*/}
         </View>
     );
   }
@@ -81,6 +86,12 @@ const styles = StyleSheet.create({
     width: 35, 
     height: 35, 
     margin: 10
+  },
+  modal:{
+    alignItems: 'center',
+    height: 400, 
+    width: 320, 
+    backgroundColor: '#fff'
   }
   }
 );
