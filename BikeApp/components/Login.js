@@ -17,6 +17,9 @@ export default class Login extends React.Component {
     ajax.postData('/login', message)
       .then((res) => {
         if (res.result === 'success') {
+          this.setState({
+            userName: '', password:''
+          });
           Actions.bikeApp()
         } else {
           alert('Wrong username or password please try again!');
