@@ -25,7 +25,7 @@ export default class Login extends React.Component {
         <Text style ={styles.loginText}>User name:</Text>
         <TextInput style={styles.inputs} onChangeText={(userName) => this.setState({userName})} value={this.state.userName} />
         <Text style ={styles.loginText}>Password:</Text>
-        <TextInput style={styles.inputs} onChangeText={(password) => this.setState({password})}  value={this.state.password}/>
+        <TextInput style={styles.inputs} onChangeText={(password) => this.setState({password})}  value={this.state.password} secureTextEntry={true}/>
         <Button onPress={this.test.bind(this)} title='Sign in'/>
       </View>
     );
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   inputs:{
     width: 150,
     marginBottom: 10,
+    fontSize: 15,
   },
   loginText:{
     fontSize: 25,
