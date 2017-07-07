@@ -2,7 +2,7 @@ import React from 'react';
 import { Alert, AppRegistry, StyleSheet, Text, View, Component, Image, TouchableOpacity, Lightbox, LightboxView, TextInput, Button } from 'react-native';
 import Modal from 'react-native-modal'
 
-export default class Login extends React.Component {
+export default class Navbar extends React.Component {
   state = {
     isModalVisible: false
   }
