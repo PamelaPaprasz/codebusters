@@ -2,14 +2,16 @@ import React from 'react';
 import { Alert, AppRegistry, StyleSheet, Text, View, Component, Image, TouchableOpacity, Lightbox, LightboxView, TextInput, Button } from 'react-native';
 import Modal from 'react-native-modal'
 
-export default class Login extends React.Component {
+
+export default class NavBar extends React.Component {
+
   state = {
     isModalVisible: false
-  }
+  };
  
-  _showModal = () => this.setState({ isModalVisible: true })
+  _showModal = () => this.setState({ isModalVisible: true });
  
-  _hideModal = () => this.setState({ isModalVisible: false })
+  _hideModal = () => this.setState({ isModalVisible: false });
 
   render() {
     return (
@@ -95,33 +97,3 @@ const styles = StyleSheet.create({
   }
   }
 );
-
-/*import React, { Component } from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
-import Modal from 'react-native-modal'
- 
-export default class ModalTester extends Component {
-  state = {
-    isModalVisible: false
-  }
- 
-  _showModal = () => this.setState({ isModalVisible: true })
- 
-  _hideModal = () => this.setState({ isModalVisible: false })
- 
-  render () {
-    return (
-      <View style={{ flex: 1, width: 100, height: 100}}>
-        <TouchableOpacity onPress={this._showModal}>
-          <Text style={{fontSize: 50}}>Show Modal</Text>
-        </TouchableOpacity>
-        <Modal isVisible={this.state.isModalVisible}>
-          <View style={{ backgroundColor: 'pink' }}>
-            <Text style={{fontSize: 40}}>Hello Pami!</Text>
-          </View>
-        </Modal>
-      </View>
-    )
-  }
- 
-}*/
