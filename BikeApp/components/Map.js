@@ -15,6 +15,8 @@ import {
 
 import MapView from 'react-native-maps';
 
+import renderIf from './renderif';
+
 
 export default class App extends React.Component {
 
@@ -43,9 +45,10 @@ export default class App extends React.Component {
           }}
         >
         <TextInput 
-          style={styles.textInput}
+          style={!this.state.switchValue ? {height: 40, width: 180, margin: 10, backgroundColor: 'red', position: 'absolute', bottom: 10, left: 0,} : {}}
           placeholder="Type here the location!"
         />
+      
         <TouchableOpacity
           style={styles.searchPictureContainer} 
           onPress={this._onPressButton}>
