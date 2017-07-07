@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet, Text, View, Component} from 'react-native';
 import {Scene, Router} from 'react-native-router-flux';
 
 import Map from './components/Map';
