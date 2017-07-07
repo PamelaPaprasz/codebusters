@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Component, Button} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Component, Button, Image} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import Ajax from './AjaxReqs';
@@ -31,6 +31,7 @@ export default class Login extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.box}>
+          <Image source={require('../img/accident.png')} style={styles.logo}/>
           <Text style ={styles.loginText}>User name:</Text>
           <TextInput style={styles.inputs} onChangeText={(userName) => this.setState({userName})} value={this.state.userName} />
           <Text style ={styles.loginText}>Password:</Text>
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: 'flex-end',
     alignItems: 'center',
+    backgroundColor: 'yellow'
   },
   box:{
     flex: 1,
@@ -69,5 +71,12 @@ const styles = StyleSheet.create({
   loginText:{
     fontSize: 25,
     color: 'black'
+  },
+  logo:{
+    height: 150,
+    width: 150,
+    marginBottom: 20,
+    backgroundColor: 'steelblue',
+    borderRadius: -150
   }
 });
