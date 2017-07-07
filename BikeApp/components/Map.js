@@ -16,7 +16,7 @@ import {
 import MapView from 'react-native-maps';
 
 import renderIf from './renderif';
-
+import { Constants, Location, Permissions } from 'expo';
 
 export default class App extends React.Component {
 
@@ -31,11 +31,43 @@ export default class App extends React.Component {
   })) 
 
 
+	state = {
+		currentLoc: null
+	};
+
+	componentDidMount() {
+		this._getLocationAsync();
+	}
+
+	_getLocationAsync = async () => {
+		let { status } = await Permissions.askAsync(Permissions.LOCATION);
+		if (status !== 'granted') {
+			this.setState({
+			currentLoc: 'Permission to access location was denied',
+			});
+		}
+
+		let location = await Location.getCurrentPositionAsync({});
+		this.setState({ currentLoc: JSON.stringify(location) });
+	};
+
+	posSelected;
+    boolean = false;
+    markers = [
+        
+        {latitude: 47.49811, longitude: 19.03181},
+        {latitude: 47.49821, longitude: 19.03471},
+        {latitude: 47.49801, longitude: 19.03361},
+        {latitude: 47.49791, longitude: 19.03361},
+        {latitude: 47.49831, longitude: 19.03261},
+    ];
+
+
   render() {
     icon= this.state.switchValue ? require('../img/detective.png') : require('../img/paper-plane.png');
     return (
       <View style={styles.mainContainer}>
-        <MapView
+        <MapView onLongPress = {e => this.onSelect(JSON.stringify(e.nativeEvent))}
           style={styles.map}
           region={{
             latitude: 47.49801,
@@ -44,6 +76,21 @@ export default class App extends React.Component {
             longitudeDelta: 0.0121,
           }}
         >
+		{this.markers.map(marker => (
+                        <MapView.Marker 
+	                        coordinate = {{
+	                        latitude: marker.latitude,
+	                        longitude: marker.longitude,
+                        }}/>
+                    ))}
+		
+		<MapView.Marker  
+                        coordinate = {{
+                        latitude: 47.49801, //this.state.locationResult.coords.latitude,
+                        longitude: 19.03991, //this.state.locationResult.coords.longitude,    
+						}}
+                        image={require('../bikepin.png')}
+                        />
         <TextInput 
           style={!this.state.switchValue ? {height: 40, width: 180, margin: 10, backgroundColor: 'red', position: 'absolute', bottom: 10, left: 0,} : {}}
           placeholder="Type here the location!"
@@ -61,6 +108,13 @@ export default class App extends React.Component {
       </View>
     );
   }
+  onSelect (data) {
+  	this.boolean = true;
+  	this.posSelected = data;
+    alert(this.posSelected); //coordinates of selected point
+  	alert(this.state.currentLoc) //coordinates of current location
+  	this.render()
+	}
 }
 
 
