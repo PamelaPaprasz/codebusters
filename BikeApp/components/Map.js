@@ -15,12 +15,19 @@ import {
 
 import MapView from 'react-native-maps';
 
+
 export default class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { search: true };
-  }
+
+  state = {
+    switchValue: true,
+    icon: '../img/detective.png',
+  };
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { search: true };
+  // }
   // _onHideUnderlay(){
   //   this.setState({ active: false });
   // }
@@ -28,15 +35,17 @@ export default class App extends React.Component {
   //   this.setState({ active: true });
   // }
 
-  _onPressButton() {
-    Alert.alert('u pressed me :)')
-    this.search = !this.search
+  _onPressButton = () => this.setState(state => ({
+    switchValue: !state.switchValue,
+  })) 
 
-
-  }
+  // _onPressButton() {
+  //   Alert.alert('u pressed me :)')
+  //   this.search = !this.search
+  // }
 
   render() {
-    icon = this.props.search ? require('../img/detective.png') : require('../img/paperplane.png');
+    icon= this.state.switchValue ? require('../img/detective.png') : require('../img/paper-plane.png');
     return (
       <View style={styles.mainContainer}>
         <MapView
@@ -52,14 +61,14 @@ export default class App extends React.Component {
           style={styles.textInput}
           placeholder="Type here the location!"
         />
-        <TouchableHighlight
+        <TouchableOpacity
           style={styles.searchPictureContainer} 
           onPress={this._onPressButton}>
             <Image
               style={styles.searchPictures}
               source={icon}
             />
-        </TouchableHighlight>
+        </TouchableOpacity>
         </MapView>
       </View>
     );
