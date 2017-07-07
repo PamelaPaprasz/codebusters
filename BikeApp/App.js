@@ -1,29 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View, Component} from 'react-native';
+import {Scene, Router} from 'react-native-router-flux';
 
-import NavBar from './components/Navbar';
 import Map from './components/Map';
 import Login from './components/Login';
 
 export default class App extends React.Component {
   render() {
     return (
-     <View style={styles.container}>
-       <NavBar/>
-       <Login/>
-     </View>
-    );
-  }
+    <Router>
+      <Scene key="root">
+        <Scene key="login" component={Login} title="Login" initial={true}/>
+        <Scene key="bikeApp" component={Map} />
+      </Scene>
+    </Router>
+  )}
 }
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  }
-});
