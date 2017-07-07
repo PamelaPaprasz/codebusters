@@ -3,13 +3,14 @@ import { StyleSheet, Text, View, Component} from 'react-native';
 
 import NavBar from './components/Navbar';
 import Map from './components/Map';
+import Login from './components/Login';
 
 export default class App extends React.Component {
   render() {
     return (
      <View style={styles.container}>
        <NavBar/>
-       <Map/>
+       <Login/>
      </View>
     );
   }
