@@ -16,10 +16,10 @@ export default class App extends React.Component {
         }}
       >
         <View style={{backgroundColor: '#5414D5', height: 30}}>
-          {/*<TextInput
+          <TextInput
             style={{height: 40}}
             placeholder="Type here the location!"
-          />*/}
+          />
         </View>
       </MapView>
     );
