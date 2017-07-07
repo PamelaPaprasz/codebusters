@@ -11,6 +11,18 @@ export default class Login extends React.Component {
  
   _hideModal = () => this.setState({ isModalVisible: false })
 
+  _onPressButtonPOST() {
+        fetch("https://lewd-gum.glitch.me/report", {method: "POST", body: JSON.stringify({username: "alma"})})
+        .then((response) => response.json())
+        .then((responseData) => {
+            Alert.alert(
+                "POST Response",
+                "Response Body -> " + responseData.body.username
+            )
+        })
+        .done();
+    }
+
   render() {
     return (
       <View style ={styles.navbar}>
@@ -38,7 +50,7 @@ export default class Login extends React.Component {
               <Text style={{fontSize: 20}}>type:</Text><TextInput style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1}}/>
               <Text style={{fontSize: 20}}>desciption:</Text><TextInput style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1}}/>
               <Button
-                onPress={this._hideModal}
+                onPress={this._onPressButtonPOST}
                 title="Send"
                 color="black"
               />
